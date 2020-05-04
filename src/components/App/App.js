@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
+import Map from "./map/Map"
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Projekt</h1>
+
+        <Map/>
 
     </div>
   );
