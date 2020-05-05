@@ -1,0 +1,38 @@
+@media (max-width: 700px) {
+  form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:#455A64;
+    top:10px;
+
+
+
+  }
+  .svg {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    bottom:120px;
+
+
+
+
+  }
+  .icon{
+    font-size: 12px;
+    position: absolute;
+    bottom:10px;
+
+  }
+  .equipment-p {
+    color: var(--blue);
+    font-weight: bold;
+    font-family: var(--font2);
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}

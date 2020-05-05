@@ -1,4 +1,29 @@
-#chartdiv {
-  width: 80vw;
-  height: 400px;
+@media (max-width: 700px) {
+  .all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #chartdiv {
+    width: 80vw;
+    height: 400px;
+    margin: 10px;
+  }
+  #info {
+    width: 80vw;
+    text-align: start;
+    font-size: 14px;
+    color: #455A64;
+
+  }
+  .map-p {
+    color: var(--blue);
+    font-weight: bold;
+    font-family: var(--font2);
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 2px;
+    margin-right: 2px;
+  }
 }

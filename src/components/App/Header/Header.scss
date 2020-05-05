@@ -1,0 +1,41 @@
+@media (max-width: 700px) {
+  nav{
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    position: sticky;
+    background-color: #DADADA;
+  }
+
+  .header-logo {
+    font-family: var(--font2);
+    color:var(--pink);
+    font-size: 30px ;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+
+  }
+  .header-logo1{
+    font-family: var(--font1);
+    color:var(--blue);
+    font-size: 40px;
+
+
+  }
+  .header-ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    margin-right: 10px;
+
+  }
+  .navlink{
+    text-decoration: none;
+    color:var(--pink);
+    font-weight: bold;
+    font-family:var(--font2);
+    font-size: 20px;
+
+  }
+
+}
