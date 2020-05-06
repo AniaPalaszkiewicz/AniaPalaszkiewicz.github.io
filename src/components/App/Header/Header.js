@@ -8,7 +8,7 @@ function Header() {
         border: ' 1px solid lightblue'
     };
     return (
-        <nav>
+        <nav className='nav'>
 
             <ul className="header-ul">
 
@@ -19,7 +19,7 @@ function Header() {
                         </div>
                     </div>
                 </NavLink></li>
-                <li><NavLink className="navlink" to="/equipment" activeStyle={activeStyle}>Sprzęt</NavLink></li>
+                <li><NavLink className="navlink " to="/equipment" activeStyle={activeStyle}>Sprzęt</NavLink></li>
                 <li><NavLink className="navlink" to="/map" activeStyle={activeStyle}>Mapa</NavLink></li>
             </ul>
 

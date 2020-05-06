@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.scss';
 import Map from "./map/Map"
 import Start from "./Start/Start";
@@ -15,6 +15,7 @@ import {
 
 
 function App(){
+
 
         return <HashRouter>
             <>

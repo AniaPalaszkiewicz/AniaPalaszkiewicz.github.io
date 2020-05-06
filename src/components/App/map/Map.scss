@@ -1,4 +1,4 @@
-@media (max-width: 700px) {
+
   .all {
     display: flex;
     align-items: center;
@@ -10,12 +10,17 @@
     height: 400px;
     margin: 10px;
   }
+  .loading {
+    color: var(--pink);
+    font-weight: bold;
+    font-family: var(--font2);
+    font-size: 20px;
+  }
   #info {
     width: 80vw;
     text-align: start;
     font-size: 14px;
     color: #455A64;
-
   }
   .map-p {
     color: var(--blue);
@@ -26,4 +31,23 @@
     margin-left: 2px;
     margin-right: 2px;
   }
-}
+
+  @media (min-width: 700px) {
+    .map {
+      display: flex;
+      justify-content: center;
+
+    }
+    #chartdiv {
+      width: 70vw;
+      height: 70vh;
+      margin: 10px;
+    }
+      #info{
+        width: 20vw;
+        margin-top:10px;
+      }
+      .map-p{
+        font-size: 30px;
+      }
+  }

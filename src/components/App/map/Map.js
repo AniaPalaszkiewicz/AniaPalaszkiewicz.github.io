@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Map.scss" ;
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
@@ -6,12 +6,17 @@ import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 
 
 export default function Map() {
+    const [loading, setLoading] = useState(false);
+
+    let w = window.innerWidth;
+
+
     useEffect(() => {
+
+
         const timeout = setTimeout(() => {
-
-
+            setLoading(true);
             am4core.ready(function () {
-
 
                 let map = am4core.create("chartdiv", am4maps.MapChart);
 
@@ -125,9 +130,12 @@ export default function Map() {
                 homeButton.insertBefore(map.zoomControl.plusButton);
 
                 // Center on the groups by default
-                map.homeZoomLevel = 7;
-                map.homeGeoPoint = {longitude: 20, latitude: 54};
-
+                if(w<700) {
+                    map.homeZoomLevel = 7;
+                    map.homeGeoPoint = {longitude: 20, latitude: 54};
+                }
+                map.homeZoomLevel = 6;
+                map.homeGeoPoint = {longitude: 20, latitude: 48};
 
             });
         },1000);
@@ -136,7 +144,9 @@ export default function Map() {
     },[]);
     return <div className="all">
         <p className="map-p">Sprawdź, gdzie warto poszusować!</p>
-        <div id="chartdiv"></div>
+        <div className='map'>
+            <div id="chartdiv">{!loading? <span className='loading'>Wczytywanie mapy... </span> : null}</div>
         <div id="info"></div>
+        </div>
     </div>
 }
