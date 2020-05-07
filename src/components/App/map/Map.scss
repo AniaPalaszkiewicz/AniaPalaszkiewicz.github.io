@@ -1,4 +1,6 @@
-
+.map {
+  height: 100vh;
+}
   .all {
     display: flex;
     align-items: center;
@@ -9,8 +11,12 @@
     width: 80vw;
     height: 400px;
     margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .loading {
+    text-align: center;
     color: var(--pink);
     font-weight: bold;
     font-family: var(--font2);
@@ -23,6 +29,7 @@
     color: #455A64;
   }
   .map-p {
+    text-align: right;
     color: var(--blue);
     font-weight: bold;
     font-family: var(--font2);

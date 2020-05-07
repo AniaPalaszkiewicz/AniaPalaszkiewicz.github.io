@@ -3,20 +3,51 @@ import "./Map.scss" ;
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
+import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import * as am4plugins_bullets from "@amcharts/amcharts4/plugins/bullets";
+import mountain from "./mountain.svg"
 
 
 export default function Map() {
     const [loading, setLoading] = useState(false);
+    const[resort,setResort]=useState([]);
+    const [resortToDisplay, setResortToDisplay] = useState([])
+    const[id]=useState([2070,1011,732,634,1828,977,1955,2040,1867]);
 
-    let w = window.innerWidth;
+    let targetSVG =mountain;
+
+    useEffect(()=>{
+          let x =resort.map(el=>({
+              minZoomLevel: 7,
+              imageURL: targetSVG,
+              title: el.name,
+              latitude: el.latitude,
+              longitude: el.longitude,
+              website: el.official_website
+          }));
+          if(x.length === id.length){setResortToDisplay(x); console.log(x);}
+    },[resort]);
+
+
+    useEffect(
+        () => {
+            for(const el of id){
+            fetch(`https://skimap.org/SkiAreas/view/${el}.json`)
+                .then(resp => resp.json())
+                .then(ski => setResort(prev=>[...prev,ski]))
+                .catch(err => console.log(err.message))}
+        }, []);
 
 
     useEffect(() => {
 
-
+        let w = window.innerWidth;
         const timeout = setTimeout(() => {
+
             setLoading(true);
             am4core.ready(function () {
+
+                am4core.useTheme(am4themes_animated);
 
                 let map = am4core.create("chartdiv", am4maps.MapChart);
 
@@ -91,11 +122,85 @@ export default function Map() {
 
                 ];
 
+                let imageSeries = map.series.push(new am4maps.MapImageSeries());
+                let imageTemplate = imageSeries.mapImages.template;
+                imageTemplate.propertyFields.longitude = "longitude";
+                imageTemplate.propertyFields.latitude = "latitude";
+                imageTemplate.nonScaling = true;
+                let pin = imageTemplate.createChild(am4plugins_bullets.PinBullet);
+
+// Set what to display on rollover tooltip
+//                 pin.tooltipText = `{title}`;
+                pin.tooltipHTML = '<b>{title}</b><br><a href={website}>Dowiedz się więcej</a>';
+                // pin.tooltip.properties.fill = am4core.color(`var(--pink)`)
+                // Set up tooltips
+                pin.calculateVisualCenter = true;
+                // pin.tooltip.tooltipPosition = "fixed";
+                // pin.tooltip.label.interactionsEnabled = true;
+                // pin.tooltip.keepTargetHover = true;
+
+                imageSeries.tooltip.pointerOrientation = "right";
+
+// Configuring pin appearance
+                pin.background.fill = map.colors.getIndex(0);
+                pin.background.fillOpacity = 0.7;
+                pin.background.pointerAngle = 120;
+                pin.background.pointerBaseWidth = 10;
+
+// Adding an image with its "href" attribute tied to values in data
+                pin.image = new am4core.Image();
+                pin.image.propertyFields.href = "imageURL";
+                pin.image.scale = (0.6);
+
+// Creating a "heat rule" to modify "radius" of the bullet based
+// on value in data
+                imageSeries.heatRules.push({
+                    "target": pin.background,
+                    "property": "radius",
+                    "min": 20,
+                    "max": 40,
+                    "dataField": "value"
+                });
+
+// Add a circle to pin base.
+// Bullet is a Container, so we can add there anything.
+                let circle = pin.createChild(am4core.Ellipse);
+                circle.radius = 6;
+                circle.radiusY = 3;
+                circle.strokeWidth = 0;
+                circle.fillOpacity = 0.1;
+                circle.zIndex = -1;
+                imageSeries.id = "markers";
+
+// set zoom events
+                imageSeries.events.on("datavalidated", updateImageVisibility);
+                map.events.on("zoomlevelchanged", updateImageVisibility);
+
+                function updateImageVisibility(ev) {
+                    let map = ev.target.baseSprite;
+                    let series = map.map.getKey("markers");
+                    series.mapImages.each(function(image) {
+                        if (image.dataItem.dataContext.minZoomLevel) {
+                            if (image.dataItem.dataContext.minZoomLevel >= map.zoomLevel) {
+                                image.hide();
+                            }
+                            else {
+                                image.show();
+                            }
+                        }
+                    });
+                }
+
+                imageSeries.data = resortToDisplay;
+
+
                 // Configure series
                 let polygonTemplate = polygonSeries.mapPolygons.template;
                 polygonTemplate.tooltipText = "{name}";
                 polygonTemplate.fill = am4core.color("lightgray");
                 polygonTemplate.propertyFields.fill = "color";
+
+                //event klik kraj-
                 polygonTemplate.events.on("hit", function (ev) {
                     ev.target.series.chart.zoomToMapObject(ev.target);
                     let data = ev.target.dataItem.dataContext;
@@ -141,9 +246,10 @@ export default function Map() {
         },1000);
         return()=>clearTimeout(timeout)
 
-    },[]);
+    },[resortToDisplay]);
+
     return <div className="all">
-        <p className="map-p">Sprawdź, gdzie warto poszusować!</p>
+        <p className="map-p">Gdzie warto poszusować?</p>
         <div className='map'>
             <div id="chartdiv">{!loading? <span className='loading'>Wczytywanie mapy... </span> : null}</div>
         <div id="info"></div>

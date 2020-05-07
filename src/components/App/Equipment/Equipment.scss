@@ -1,86 +1,100 @@
 
-  form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color:#455A64;
-    top:10px;
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #455A64;
+  text-align: center;
+
+
+  span {
+    line-height: 1.5;
+  }
+
+  input {
     text-align: center;
-    span{
-      line-height: 1.5;
-    }
-    input {
-      text-align: center;
-      width: 150px;
-      height: 15px;
-      margin: 2px;
-      background-color: #DADADA;
-      font-family: var(--font1);
-      border-radius: 5px;
-      border: 2px solid var(--blue);
-      color:#455A64;
-      outline-style: none;
-    }
-    select{
-      width:150px;
-      height: 20px;
-      background-color: #DADADA;
-      border-radius: 3px;
-      border: 2px solid var(--blue);
-      color:#455A64;
-      outline-style: none;
-    }
+    width: 150px;
+    height: 15px;
+    margin: 2px;
+    background-color: #DADADA;
+    font-family: var(--font1);
+    border-radius: 5px;
+    border: 2px solid var(--blue);
+    color: #455A64;
+    outline-style: none;
   }
-  .svg {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    bottom:50px;
+
+  select {
+    width: 150px;
+    height: 20px;
+    background-color: #DADADA;
+    border-radius: 3px;
+    border: 2px solid var(--blue);
+    color: #455A64;
+    outline-style: none;
+    text-indent: 27px;
   }
-  .form {
-    display: flex;
+}
+
+.svg {
+  margin-top:3vh;
+  width: 200px;
+  height: 200px;
+}
+
+.form {
+  width: 95vw;
+  height: calc(100vh - 50px);
+  display: flex;
   flex-direction: column;
   align-items: center;
-  }
-  .equipment-page{
-    display: flex;
-    flex-direction: column;
+  margin-top:3vh;
+}
+
+.equipment-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.span {
+  color: var(--pink);
+  font-size: 18px;
+}
+
+
+
+.equipment-p {
+  color: var(--blue);
+  font-weight: bold;
+  font-family: var(--font2);
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .form {
+    flex-direction: row;
     align-items: center;
-  }
-  .span {
-    color: var(--pink);
-    font-size: 18px;
-  }
-
-  .icon{
-    font-size: 12px;
-    position: absolute;
-    bottom:10px;
-
-
+    justify-content: center;
   }
   .equipment-p {
-    color: var(--blue);
-    font-weight: bold;
-    font-family: var(--font2);
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
+    font-size: 30px;
   }
-  @media (min-width: 700px) {
-    .form{
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .equipment-p{
-      font-size: 30px;
-    }
-    .svg {
-      width: 200px;
-      height: 200px;
-      position: relative;
-    }
+  .svg {
+    width: 350px;
+    height: 350px;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 100px;
+
+
+  }
+  form {
+    width: 300px;
+
+  }
 }
