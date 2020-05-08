@@ -1,60 +1,78 @@
 .map {
   height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-  .all {
+
+.all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#chartdiv {
+  width: 100vw;
+  height: 400px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading {
+  text-align: center;
+  color: var(--pink);
+  font-weight: bold;
+  font-family: var(--font2);
+  font-size: 20px;
+}
+
+#info {
+  width: 80vw;
+  justify-content: center;
+  text-align: left;
+  font-size: 14px;
+  color: #455A64;
+  background-color: lightblue;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+
+  a {
+    color: var(--pink);
+  }
+}
+
+.map-p {
+  text-align: right;
+  color: var(--blue);
+  font-weight: bold;
+  font-family: var(--font2);
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+@media (min-width: 700px) {
+  .map {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 90vw;
   }
   #chartdiv {
-    width: 80vw;
-    height: 400px;
+    width: 70vw;
+    height: 70vh;
     margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .loading {
-    text-align: center;
-    color: var(--pink);
-    font-weight: bold;
-    font-family: var(--font2);
-    font-size: 20px;
   }
   #info {
-    width: 80vw;
-    text-align: start;
-    font-size: 14px;
-    color: #455A64;
+    width: 20vw;
+    margin-top: 10px;
   }
   .map-p {
-    text-align: right;
-    color: var(--blue);
-    font-weight: bold;
-    font-family: var(--font2);
-    font-size: 20px;
-    margin-top: 20px;
-    margin-left: 2px;
-    margin-right: 2px;
+    font-size: 30px;
   }
-
-  @media (min-width: 700px) {
-    .map {
-      display: flex;
-      justify-content: center;
-
-    }
-    #chartdiv {
-      width: 70vw;
-      height: 70vh;
-      margin: 10px;
-    }
-      #info{
-        width: 20vw;
-        margin-top:10px;
-      }
-      .map-p{
-        font-size: 30px;
-      }
-  }
+}

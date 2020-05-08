@@ -48,9 +48,6 @@ export default function Equipment() {
                     <span>Podaj swój wzrost w centymetrach:</span>
                     <input type="number" value={length}
                            onChange={(e) => setLength(e.target.value < 0 ? 0 : e.target.value)}/>
-                    {length < 50 ? <span>Przykro mi, jesteś za mały :(</span> : length > 220 ?
-                        <span>Grasz w kosza?</span> : <span>Przbliżona długość nart dla Ciebie to <span
-                            className="span">{length - 10} cm</span> </span>}
                     <span>Podaj swoją wagę w kilogramach:</span>
                     <input type="number" value={weight} onChange={(e) => setWeight(e.target.value)}/>
                     <span>Jaki jest poziom Twoich umiejętności narciarskich?</span>
@@ -59,6 +56,11 @@ export default function Equipment() {
                         <option value={1}>Średniozaawansowany</option>
                         <option value={2}>Zaawansowany</option>
                     </select>
+                    <br/>
+                    <br/>
+                    {length < 50 ? <span>Przykro mi, jesteś za mały :(</span> : length > 220 ?
+                        <span>Grasz w kosza?</span> : <span>Przbliżona długość nart dla Ciebie to <span
+                            className="span">{length - 10} cm</span> </span>}
                     {weight < 17 ? <span>Musisz jeszcze trochę poczekać</span> : weight > 180 ?
                         <span>Ups coś poszło nie tak! :(</span> :
                         <span>Przybliżona wartość na jaką powinno się ustawić wiązania to <span

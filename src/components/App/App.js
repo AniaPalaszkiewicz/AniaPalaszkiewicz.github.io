@@ -4,6 +4,7 @@ import Map from "./map/Map"
 import Start from "./Start/Start";
 import Equipment from "./Equipment/Equipment";
 import Header from "./Header/Header";
+import AboutMe from "./About me/AboutMe";
 import {
     HashRouter,
     Route,
@@ -18,17 +19,18 @@ function App(){
 
 
         return <HashRouter>
-            <>
+            <div className="app-container">
                 <Header/>
                 <Switch>
                     <Route exact path='/' component={Start}  />
                     <Route path='/equipment' component={Equipment} />
                     <Route path='/map' component={Map} />
+                    <Route path='/aboutme' component={AboutMe} />
                 </Switch>
-                <div className="icon">Icons made by <a href="https://www.flaticon.com/authors/smashicons"
-                                                       title="Smashicons">Smashicons</a> from <a
-                    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </>
+            </div>
+            <div className="icon">Icons made by <a href="https://www.flaticon.com/authors/smashicons"
+                                                   title="Smashicons">Smashicons</a> from <a
+                href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
         </HashRouter>;
 
 }

@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 
 export default function Start() {
 
-    const [welcome, setWelcome] = useState(true)
+    const [welcome, setWelcome] = useState(true);
 
     useEffect(()=>{
         const timeout = setTimeout(()=>{

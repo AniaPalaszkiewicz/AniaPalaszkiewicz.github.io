@@ -1,0 +1,16 @@
+.about{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:90vw;
+
+  h1{
+      text-decoration: none;
+      color: var(--pink);
+      font-weight: bold;
+      font-family: var(--font2);
+      font-size: 30px;
+    text-align: center;
+  }
+}

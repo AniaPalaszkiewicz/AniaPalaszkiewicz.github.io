@@ -23,6 +23,7 @@ function Header() {
                 </NavLink></li>
                 <li><NavLink onClick={handleMenu} className="navlink " to="/equipment" activeStyle={activeStyle}>Sprzęt</NavLink></li>
                 <li><NavLink  onClick={handleMenu} className="navlink" to="/map" activeStyle={activeStyle}>Mapa</NavLink></li>
+                <li><NavLink  onClick={handleMenu} className="navlink" to="/aboutme" activeStyle={activeStyle}>O mnie :)</NavLink></li>
             </ul>
         </nav>
             <img onClick={handleMenu} className="transport" src={transport} alt=""/>
