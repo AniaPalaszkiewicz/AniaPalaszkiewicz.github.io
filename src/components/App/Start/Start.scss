@@ -1,9 +1,10 @@
 .banner{
   background-image: url("80958488_2691861500866888_3287745620537769984_n.jpg");
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
+
 }
 .banner-title {
   width: 200px;
@@ -18,11 +19,12 @@
   font-size: 75px;
   color: var(--blue);
   text-shadow:  0 3px 6px rgba(0, 0, 0, .16);
+
 }
 .banner-title1{
   font-size:40px ;
   width: 200px;
-  height: 30px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,8 +32,10 @@
   position: absolute;
   text-align: center;
   left: calc(50% - 100px);
-  top:calc(50% - 15px);
   text-shadow:  0 3px 6px rgba(0, 0, 0, 0.5);
+  p{
+    margin-top: 10px;
+  }
   a{
     z-index:9999;
     color: var(--pink);
@@ -108,9 +112,8 @@ $s3: "";
 
 @media (min-width: 700px) {
   .banner {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background-size: 200vh;
   }
 
 }

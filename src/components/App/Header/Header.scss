@@ -3,12 +3,14 @@
   top: -90px;
   transition: top 1s;
   z-index: 999999;
+  width: 100%;
 }
 .go1{
   position: absolute;
   top:0;
   transition: top 1s;
   z-index: 999999;
+  width: 100%;
 }
 
 
@@ -23,7 +25,7 @@
 
 
 .nav {
-  width: 100vw;
+  width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
   position: sticky;
   background-color: #DADADA;
