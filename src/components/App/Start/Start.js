@@ -10,7 +10,7 @@ export default function Start() {
     useEffect(()=>{
         const timeout = setTimeout(()=>{
             setWelcome(false)
-        }, 2000);
+        }, 4000);
         return () => clearTimeout(timeout)
     }, []);
 
